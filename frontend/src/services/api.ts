@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+const PROD_API = 'https://mec-skillforge.onrender.com'
+const isDev = import.meta.env.DEV
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api',
+  baseURL: isDev ? '/api' : `${PROD_API}/api`,
   withCredentials: true,
 })
 

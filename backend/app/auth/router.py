@@ -28,8 +28,21 @@ class LoginRequest(BaseModel):
 
 
 def set_auth_cookies(response: Response, access_token: str, refresh_token: str):
-    response.set_cookie("access_token", access_token, httponly=True, samesite="lax", secure=False, max_age=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60)
-    response.set_cookie("refresh_token", refresh_token, httponly=True, samesite="lax", secure=False, max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 86400)
+    is_prod = settings.ENVIRONMENT == "production"
+    response.set_cookie(
+        "access_token", access_token,
+        httponly=True,
+        samesite="none" if is_prod else "lax",
+        secure=is_prod,
+        max_age=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60
+    )
+    response.set_cookie(
+        "refresh_token", refresh_token,
+        httponly=True,
+        samesite="none" if is_prod else "lax",
+        secure=is_prod,
+        max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 86400
+    )
 
 
 @router.post("/register", status_code=201)
