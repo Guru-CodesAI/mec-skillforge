@@ -4,7 +4,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from app.config import settings
-from app.database.db import init_db
+from app.database.db import init_db, AsyncSessionLocal
 from app.auth.router import router as auth_router
 from app.users.router import router as users_router
 from app.github_verification.router import router as github_router
@@ -43,6 +43,26 @@ app.include_router(admin_router, prefix="/api")
 @app.on_event("startup")
 async def startup():
     await init_db()
+    await seed_admin()
+
+
+async def seed_admin():
+    from sqlalchemy import select
+    from app.database.models import User, UserRole
+    from app.auth.security import hash_password
+    async with AsyncSessionLocal() as db:
+        result = await db.execute(select(User).where(User.email == "admin@skillforge.dev"))
+        if result.scalar_one_or_none():
+            return
+        admin = User(
+            name="SkillForge Admin",
+            email="admin@skillforge.dev",
+            password_hash=hash_password("Admin@SF2024!"),
+            role=UserRole.admin,
+            experience_level="senior",
+        )
+        db.add(admin)
+        await db.commit()
 
 
 @app.get("/api/health")
