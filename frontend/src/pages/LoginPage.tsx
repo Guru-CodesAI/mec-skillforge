@@ -91,7 +91,6 @@ export default function LoginPage() {
           <p className={styles.switchText}>
             No account? <Link to="/register" className={styles.switchLink}>Create one free</Link>
           </p>
-
         </div>
       </div>
     </div>
