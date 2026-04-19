@@ -110,3 +110,20 @@ async def me(current_user: User = Depends(get_current_user)):
         "github_username": current_user.github_username,
         "created_at": current_user.created_at,
     }
+
+
+@router.post("/promote-admin")
+async def promote_admin(request: Request, db: AsyncSession = Depends(get_db)):
+    """One-time endpoint — remove after use"""
+    body = await request.json()
+    secret = body.get("secret")
+    if secret != "forge-init-2024":
+        raise HTTPException(status_code=403, detail="Forbidden")
+    email = body.get("email")
+    result = await db.execute(select(User).where(User.email == email))
+    user = result.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    user.role = UserRole.admin
+    await db.commit()
+    return {"message": f"{email} promoted to admin"}
