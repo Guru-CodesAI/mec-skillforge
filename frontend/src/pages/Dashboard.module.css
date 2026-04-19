@@ -1,0 +1,146 @@
+.loadingPage {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--surface);
+}
+.loadingSpinner {
+  width: 40px; height: 40px;
+  border: 2px solid rgba(0,240,255,0.15);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.loadingText { font-size: 0.875rem; color: var(--on-surface-dim); }
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 88px 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+.pageTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--on-surface);
+  margin-bottom: 0.25rem;
+}
+.pageSub { font-size: 0.875rem; color: var(--on-surface-dim); }
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0,240,255,0.04);
+  border: 1px solid rgba(0,240,255,0.1);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--on-surface-dim);
+  font-family: 'Space Grotesk', sans-serif;
+  align-self: flex-start;
+}
+.statusDot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* ── Bento grid ── */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+}
+.trustCard { grid-column: span 7; border-radius: 16px; padding: 2rem; }
+.githubCard { grid-column: span 5; border-radius: 16px; padding: 2rem; background: rgba(16,16,32,0.9); border: 1px solid rgba(0,240,255,0.12); position: relative; overflow: hidden; }
+.skillsCard { grid-column: span 8; border-radius: 16px; padding: 2rem; }
+.identityCard { grid-column: span 4; border-radius: 16px; padding: 2rem; }
+
+@media (max-width: 1024px) {
+  .trustCard { grid-column: span 12; }
+  .githubCard { grid-column: span 12; }
+  .skillsCard { grid-column: span 12; }
+  .identityCard { grid-column: span 12; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .trustCard { grid-column: span 6; }
+  .githubCard { grid-column: span 6; }
+  .skillsCard { grid-column: span 7; }
+  .identityCard { grid-column: span 5; }
+}
+
+.cardLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-dim);
+  margin-bottom: 1.5rem;
+}
+
+/* Trust */
+.trustInner { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+.trustMeta { flex: 1; min-width: 180px; display: flex; flex-direction: column; gap: 1rem; }
+.trustStat { display: flex; flex-direction: column; gap: 0.125rem; }
+.metaLabel { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-surface-dim); font-family: 'Space Grotesk', sans-serif; }
+.metaVal { font-size: 1.25rem; font-weight: 700; color: var(--on-surface); }
+.trustNote { font-size: 0.75rem; color: var(--on-surface-dim); line-height: 1.6; border-left: 2px solid rgba(0,240,255,0.2); padding-left: 0.75rem; }
+
+/* GitHub */
+.githubGlow {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,240,255,0.06), rgba(124,58,237,0.06));
+  pointer-events: none;
+}
+.githubTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; position: relative; }
+.verifiedChip { background: rgba(0,240,160,0.1) !important; border-color: rgba(0,240,160,0.3) !important; color: var(--success) !important; }
+.githubTitle { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; color: var(--on-surface); margin-bottom: 0.5rem; position: relative; }
+.githubDesc { font-size: 0.8rem; color: var(--on-surface-dim); margin-bottom: 1.5rem; line-height: 1.6; position: relative; }
+.verifyBtn { width: 100%; padding: 0.75rem; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; position: relative; }
+.btnSpinner { width: 14px; height: 14px; border: 2px solid rgba(8,8,16,0.3); border-top-color: #080810; border-radius: 50%; animation: spin 0.7s linear infinite; }
+.successMsg { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--success); margin-top: 0.75rem; position: relative; }
+.errorMsg { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--error); margin-top: 0.75rem; position: relative; }
+
+/* Skills */
+.skillsHeader { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 1.75rem; }
+.skillsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+@media (min-width: 1200px) { .skillsGrid { grid-template-columns: repeat(3, 1fr); } }
+.emptySkills { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 2rem 0; color: var(--on-surface-dim); font-size: 0.875rem; text-align: center; }
+
+/* Identity */
+.identityGrid { display: flex; flex-direction: column; gap: 1rem; }
+.identityItem { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; background: rgba(0,240,255,0.03); border: 1px solid rgba(0,240,255,0.06); border-radius: 10px; }
+.identityVal { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--on-surface); text-transform: capitalize; margin-top: 0.125rem; }

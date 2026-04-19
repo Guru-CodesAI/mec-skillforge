@@ -1,0 +1,33 @@
+.main { max-width: 1000px; margin: 0 auto; padding: 88px 1.5rem 3rem; position: relative; z-index: 1; }
+.pageHeader { margin-bottom: 2.5rem; }
+.eyebrow { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); animation: pulse-ring 2s ease-in-out infinite; }
+.title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--on-surface); }
+.sub { font-size: 0.875rem; color: var(--on-surface-dim); margin-top: 0.25rem; }
+.loading { display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column; gap: 1rem; }
+.spinner { width: 40px; height: 40px; border: 2px solid rgba(0,240,255,0.1); border-top-color: var(--cyan); border-radius: 50%; animation: spin 0.7s linear infinite; }
+.grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.25rem; }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .skillsCard { grid-column: span 1 !important; } }
+.skillsCard { grid-column: span 2; }
+.card { background: rgba(13,13,26,0.9); border: 1px solid rgba(0,240,255,0.08); border-radius: 16px; padding: 2rem; }
+.cardHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
+.cardTitle { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--on-surface-dim); }
+.editBtn { padding: 0.4rem 1rem; border-radius: 8px; font-size: 0.75rem; }
+.form { display: flex; flex-direction: column; gap: 1.125rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-surface-dim); font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+.saveBtn { padding: 0.8rem; border-radius: 10px; margin-top: 0.25rem; }
+.profileGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.profileItem { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.875rem; background: rgba(0,240,255,0.03); border: 1px solid rgba(0,240,255,0.06); border-radius: 10px; }
+.profileVal { font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--on-surface); text-transform: capitalize; }
+.msg { font-size: 0.75rem; color: var(--success); margin-top: 1rem; display: flex; align-items: center; gap: 0.4rem; }
+.trustDisplay { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.trustNum { display: flex; align-items: baseline; gap: 0.375rem; }
+.trustBig { font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--cyan); text-shadow: 0 0 30px rgba(0,240,255,0.4); line-height: 1; }
+.trustDenom { font-size: 1rem; color: var(--on-surface-dim); }
+.empty { font-size: 0.875rem; color: var(--on-surface-dim); }
+.skillsList { display: flex; flex-direction: column; gap: 1.125rem; }
+.skillRow { display: flex; align-items: center; gap: 1rem; }
+.skillName { font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--on-surface); width: 100px; flex-shrink: 0; }
+.skillBarWrap { display: flex; align-items: center; gap: 0.75rem; flex: 1; }
+.skillScore { font-size: 0.7rem; color: var(--cyan); font-family: 'Space Grotesk', sans-serif; font-weight: 700; width: 2.5rem; text-align: right; }

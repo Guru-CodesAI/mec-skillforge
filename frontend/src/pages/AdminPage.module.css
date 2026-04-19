@@ -1,0 +1,29 @@
+.main { max-width: 1400px; margin: 0 auto; padding: 88px 1.5rem 3rem; position: relative; z-index: 1; }
+.pageHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1.5rem; }
+.eyebrow { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); animation: pulse-ring 2s ease-in-out infinite; }
+.title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--on-surface); }
+.sub { font-size: 0.875rem; color: var(--on-surface-dim); margin-top: 0.25rem; }
+.statsRow { display: flex; gap: 1rem; flex-wrap: wrap; }
+.statCard { display: flex; flex-direction: column; align-items: flex-end; padding: 1rem 1.5rem; background: rgba(13,13,26,0.9); border: 1px solid rgba(0,240,255,0.08); border-radius: 12px; min-width: 100px; }
+.statLabel { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-surface-dim); font-family: 'Space Grotesk', sans-serif; }
+.statVal { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.loading { display: flex; justify-content: center; padding: 4rem; }
+.spinner { width: 40px; height: 40px; border: 2px solid rgba(0,240,255,0.1); border-top-color: var(--cyan); border-radius: 50%; animation: spin 0.7s linear infinite; }
+.tableWrap { background: rgba(13,13,26,0.9); border: 1px solid rgba(0,240,255,0.08); border-radius: 16px; overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.th { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-surface-dim); font-family: 'Space Grotesk', sans-serif; font-weight: 600; padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid rgba(0,240,255,0.06); white-space: nowrap; }
+.tr { transition: background 0.2s; }
+.tr:hover { background: rgba(0,240,255,0.02); }
+.td { padding: 1rem 1.25rem; vertical-align: middle; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.userCell { display: flex; align-items: center; gap: 0.75rem; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 800; color: #080810; flex-shrink: 0; }
+.userName { font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--on-surface); }
+.userEmail { font-size: 0.7rem; color: var(--on-surface-dim); }
+.dimText { font-size: 0.8rem; color: var(--on-surface-dim); text-transform: capitalize; font-family: 'Space Grotesk', sans-serif; }
+.trustCell { display: flex; flex-direction: column; gap: 0.125rem; }
+.trustNum { font-size: 1rem; font-weight: 700; }
+.trustConf { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--on-surface-dim); font-family: 'Space Grotesk', sans-serif; }
+.removeBtn { background: rgba(255,77,109,0.08); color: var(--error); border: 1px solid rgba(255,77,109,0.2); padding: 0.35rem 0.875rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer; font-family: 'Space Grotesk', sans-serif; font-weight: 600; transition: all 0.2s; white-space: nowrap; }
+.removeBtn:hover { background: rgba(255,77,109,0.15); border-color: rgba(255,77,109,0.4); }
+.removeBtn:disabled { opacity: 0.4; cursor: not-allowed; }
