@@ -1,11 +1,10 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : '/api',
   withCredentials: true,
 })
 
-// No retry interceptor — 401 means not logged in, just reject cleanly
 api.interceptors.response.use(
   (res) => res,
   (err) => Promise.reject(err)
